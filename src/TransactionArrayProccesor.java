@@ -27,14 +27,14 @@ public class TransactionArrayProccesor {
                 printTransactionStatus(i + 1, transferAmount, "Approved");
             } else {
                 rejectedTransactions++;
-                printTransactionStatus(i + 1, transferAmount, "Rejected - Insufficient Funds");
+                printTransactionStatus(i + 1, transferAmount, "Rejected");
             }
         }
         printSummary(approvedTransactions, rejectedTransactions, totalTransferred, currentBalance);
     }
 
     public static boolean canTransfer(double currentBalance, double transferAmount) {
-        return currentBalance >= transferAmount;
+        return transferAmount > 0 && currentBalance >= transferAmount;
     }
 
     public static void printTransactionStatus(int transactionNumber, double amount, String status) {
@@ -48,4 +48,23 @@ public class TransactionArrayProccesor {
         System.out.println("Total Transferred: S/ " + totalTransferred);
         System.out.println("Final Balance: S/ " + finalBalance);
     }
+
+    public static double calculateTotal (double[] amounts) {
+        double total = 0;
+        for (double amount : amounts) total += amount;
+        return total;
+    }
+
+    public static double findLargestAmount (double[] amounts){
+        double max = amounts[0];
+        for (double amount : amounts) if (amount > max) max = amount;
+        return max;
+    }
+
+    public static double findSmallestAmount (double[] amounts){
+        double min = amounts[0];
+        for (double amount : amounts) if (amount < min) min = amount;
+        return min;
+    }
+
 }
