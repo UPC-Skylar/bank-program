@@ -32,7 +32,16 @@ public class TransactionBatchProcessor {
         System.out.println("Rejected Transactions: " + rejectedTransactions);
         System.out.println("Total Transferred: S/ " + totalTransferred);
 
+
+        String accountStatus = null;
+
+        if ("ACTIVE".equals(accountStatus)) {
+            System.out.println("Active");
+        }
+
     }
+
+
 
 
 }
