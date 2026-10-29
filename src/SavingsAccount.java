@@ -4,7 +4,7 @@ public class SavingsAccount extends BankAccount {
     public SavingsAccount(String accountNumber, Customer owner, double balance, double interestRate) {
         super(accountNumber, owner, balance, "ACTIVE");
 
-        if (interestRate < 0.0 || interestRate > 1.0) {
+        if ( !Double.isFinite(interestRate) || interestRate < 0.0 || interestRate > 1.0) {
             throw new IllegalArgumentException("Interest rate must be between 0 and 1");
         }
 
