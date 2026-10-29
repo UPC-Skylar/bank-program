@@ -10,8 +10,8 @@ public class BankAccount {
             throw new IllegalArgumentException("Invalid account number");
         }
 
-        if(owner.getFullName() == null || owner.getFullName().isBlank()) {
-            throw new IllegalArgumentException("Invalid customer name");
+        if(owner == null) {
+            throw new IllegalArgumentException("Owner cannot be null");
         }
 
         if(balance < 0) {

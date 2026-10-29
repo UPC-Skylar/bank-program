@@ -4,6 +4,11 @@ public class Customer {
     private String email;
 
     public Customer(String customerId, String fullName, String email) {
+
+        if (fullName == null || fullName.isBlank()) {
+            throw new IllegalArgumentException("Invalid customer name");
+        }
+
         this.customerId = customerId;
         this.fullName = fullName;
         this.email = email;
