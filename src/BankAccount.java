@@ -45,6 +45,10 @@ public class BankAccount {
         if (amount > 0 && hasSufficientFunds(amount) && isActive()) balance -= amount;
     }
 
+    public String getAccountType(){
+        return "GENERAL";
+    }
+
     public boolean isActive() {
         return "ACTIVE".equalsIgnoreCase(status);
     }

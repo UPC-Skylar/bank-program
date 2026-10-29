@@ -33,6 +33,13 @@ public class BankApplication {
                 "ACTIVE"
         );
 
+        SavingsAccount savingsAccount = new SavingsAccount(
+                "ACC-004",
+                firstCustomer,
+                2000,
+                0.03
+        );
+
         System.out.println("\nCustomers:");
         System.out.println("Customer 1: " + firstCustomer.getFullName());
         System.out.println("Customer 2: " + secondCustomer.getFullName());
@@ -41,6 +48,12 @@ public class BankApplication {
         System.out.println("cus001SavingsAccount: " + cus001SavingsAccount);
         System.out.println("cus001CheckingAccount: " + cus001CheckingAccount);
         System.out.println("cus002SavingsAccount: " + cus002SavingsAccount);
+
+        savingsAccount.deposit(500);
+
+        System.out.println(savingsAccount.getBalance());
+        System.out.println(savingsAccount.getAccountType());
+        System.out.println(savingsAccount.getInterestRate());
 
         System.out.println("\nTotal accounts: " + BankAccount.getTotalAccounts());
 
