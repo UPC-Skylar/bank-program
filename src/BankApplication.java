@@ -15,9 +15,9 @@ public class BankApplication {
                         "Ana"
                 );
 
-        System.out.println(firstAccount.balance);
-        System.out.println(secondAccount.balance);
-        System.out.println(thirdAccount.toString());
-
+        //System.out.println(firstAccount.balance);
+        //System.out.println(secondAccount.balance);
+        System.out.println(thirdAccount);
+        System.out.println(500 - (-400));
     }
 }
