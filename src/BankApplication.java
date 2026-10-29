@@ -1,22 +1,48 @@
 public class BankApplication {
     public static void main(String[] args) {
-        System.out.println("Total accounts created: " + BankAccount.getTotalAccounts());
-        BankAccount firstAccount = new BankAccount("ACC-001", "Jack", 1000, "ACTIVE");
-        BankAccount secondAccount = new BankAccount("ACC-002", "Paul", 2500, "ACTIVE");
+        Customer firstCustomer = new Customer(
+                "CUS-001",
+                "Ana",
+                "ana@gmail.com"
+        );
 
-        //firstAccount.deposit(1000);
-        //firstAccount.withdraw(500);
+        Customer secondCustomer = new Customer(
+                "CUS-002",
+                "Luis",
+                "luis@gmail.com"
+        );
 
-        //secondAccount.deposit(300);
-        //secondAccount.withdraw(1000);
+        BankAccount cus001SavingsAccount = new BankAccount(
+                "ACC-001",
+                firstCustomer,
+                1500,
+                "ACTIVE"
+        );
 
-        BankAccount thirdAccount = new BankAccount(
-                        "ACC-003",
-                        "Ana", 500, "ACTIVE");
+        BankAccount cus001CheckingAccount = new BankAccount(
+                "ACC-002",
+                firstCustomer,
+                3000,
+                "ACTIVE"
+        );
 
-        System.out.println(firstAccount);
-        System.out.println(secondAccount);
-        System.out.println(thirdAccount);
-        System.out.println("Total accounts created: " + BankAccount.getTotalAccounts());
+        BankAccount cus002SavingsAccount = new BankAccount(
+                "ACC-003",
+                secondCustomer,
+                800,
+                "ACTIVE"
+        );
+
+        System.out.println("\nCustomers:");
+        System.out.println("Customer 1: " + firstCustomer.getFullName());
+        System.out.println("Customer 2: " + secondCustomer.getFullName());
+
+        System.out.println("\nBank Accounts:");
+        System.out.println("cus001SavingsAccount: " + cus001SavingsAccount);
+        System.out.println("cus001CheckingAccount: " + cus001CheckingAccount);
+        System.out.println("cus002SavingsAccount: " + cus002SavingsAccount);
+
+        System.out.println("\nTotal accounts: " + BankAccount.getTotalAccounts());
+
     }
 }

@@ -1,16 +1,16 @@
 public class BankAccount {
     private final String accountNumber; //fields
-    private final String customerName;
+    private final Customer owner;
     private double balance;
     private String status;
     private static int totalAccounts = 0;
 
-    public BankAccount(String accountNumber, String customerName, double balance, String status) {
+    public BankAccount(String accountNumber, Customer owner, double balance, String status) {
         if(accountNumber == null || accountNumber.isBlank()) {
             throw new IllegalArgumentException("Invalid account number");
         }
 
-        if(customerName == null || customerName.isBlank()) {
+        if(owner.getFullName() == null || owner.getFullName().isBlank()) {
             throw new IllegalArgumentException("Invalid customer name");
         }
 
@@ -23,14 +23,14 @@ public class BankAccount {
         }
 
         this.accountNumber = accountNumber;
-        this.customerName = customerName;
+        this.owner = owner;
         this.balance = balance;
         this.status = status.toUpperCase();
         totalAccounts++;
     }
 
-    public BankAccount(String accountNumber, String customerName){
-        this(accountNumber, customerName, 0, "ACTIVE");
+    public BankAccount(String accountNumber, Customer owner){
+        this(accountNumber, owner, 0, "ACTIVE");
     }
 
     public void deposit(double amount) { //method
@@ -58,7 +58,7 @@ public class BankAccount {
     }
 
     public String getCustomerName() {
-        return customerName;
+        return owner.getFullName();
     }
 
     public String getStatus() {
@@ -81,7 +81,7 @@ public class BankAccount {
     public String toString() {
         return "BankAccount{" +
                 "accountNumber='" + accountNumber + '\'' +
-                ", customerName='" + customerName + '\'' +
+                ", owner='" + owner.getFullName() + '\'' +
                 ", balance=" + balance +
                 ", status='" + status + '\'' +
                 '}';
