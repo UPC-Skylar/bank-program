@@ -3,6 +3,7 @@ public class BankAccount {
     private final String customerName;
     private double balance;
     private String status;
+    private static int totalAccounts = 0;
 
     public BankAccount(String accountNumber, String customerName, double balance, String status) {
         if(accountNumber == null || accountNumber.isBlank()) {
@@ -24,7 +25,8 @@ public class BankAccount {
         this.accountNumber = accountNumber;
         this.customerName = customerName;
         this.balance = balance;
-        this.status = status;
+        this.status = status.toUpperCase();
+        totalAccounts++;
     }
 
     public BankAccount(String accountNumber, String customerName){
@@ -36,7 +38,7 @@ public class BankAccount {
     }
 
     public boolean hasSufficientFunds(double amount) {
-        return balance >= amount;
+        return amount > 0 && balance >= amount;
     }
 
     public void withdraw(double amount) {
@@ -63,6 +65,10 @@ public class BankAccount {
         return status;
     }
 
+    public static int getTotalAccounts() {
+        return totalAccounts;
+    }
+
     public void block(){
         status = "BLOCKED";
     }
@@ -70,6 +76,8 @@ public class BankAccount {
     public void activate(){
         status = "ACTIVE";
     }
+
+
 
     @Override
     public String toString() {
