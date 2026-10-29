@@ -77,8 +77,6 @@ public class BankAccount {
         status = "ACTIVE";
     }
 
-
-
     @Override
     public String toString() {
         return "BankAccount{" +
