@@ -57,5 +57,11 @@ public class BankApplication {
 
         System.out.println("\nTotal accounts: " + BankAccount.getTotalAccounts());
 
+        InterestBearing annualInterest = new SavingsAccount("ACC-005",
+                secondCustomer,
+                4000,
+                0.06);
+
+        System.out.println(annualInterest.calculateAnnualInterest());
     }
 }
