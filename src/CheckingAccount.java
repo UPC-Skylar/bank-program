@@ -13,6 +13,10 @@ public class CheckingAccount extends BankAccount {
         return "CHECKING";
     }
 
-
+    @Override
+    public String toString() {
+        return
+                super.toString() + "}";
+    }
 
 }

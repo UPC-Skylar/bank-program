@@ -81,11 +81,10 @@ public abstract class BankAccount {
 
     @Override
     public String toString() {
-        return "BankAccount{" +
-                "accountNumber='" + accountNumber + '\'' +
-                ", owner='" + owner.getFullName() + '\'' +
-                ", balance=" + balance +
-                ", status='" + status + '\'' +
-                '}';
+        return
+                "{" + "accountNumber = " + accountNumber + '\'' +
+                ", owner = " + owner.getFullName() + '\'' +
+                ", balance = " + balance +
+                ", status = " + status + '\'';
     }
 }
