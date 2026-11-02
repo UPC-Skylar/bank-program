@@ -12,25 +12,25 @@ public class BankApplication {
                 "luis@gmail.com"
         );
 
-        BankAccount cus001SavingsAccount = new BankAccount(
+        BankAccount cus001SavingsAccount = new SavingsAccount(
                 "ACC-001",
                 firstCustomer,
                 1500,
-                "ACTIVE"
+                0.3
         );
 
-        BankAccount cus001CheckingAccount = new BankAccount(
+        BankAccount cus001CheckingAccount = new CheckingAccount(
                 "ACC-002",
                 firstCustomer,
                 3000,
                 "ACTIVE"
         );
 
-        BankAccount cus002SavingsAccount = new BankAccount(
+        BankAccount cus002SavingsAccount = new SavingsAccount(
                 "ACC-003",
                 secondCustomer,
                 800,
-                "ACTIVE"
+                0.09
         );
 
         SavingsAccount savingsAccount = new SavingsAccount(

@@ -1,4 +1,4 @@
-public class BankAccount {
+public abstract class BankAccount {
     private final String accountNumber; //fields
     private final Customer owner;
     private double balance;
@@ -45,9 +45,7 @@ public class BankAccount {
         if (amount > 0 && hasSufficientFunds(amount) && isActive()) balance -= amount;
     }
 
-    public String getAccountType(){
-        return "GENERAL";
-    }
+    public abstract String getAccountType();
 
     public boolean isActive() {
         return "ACTIVE".equalsIgnoreCase(status);
