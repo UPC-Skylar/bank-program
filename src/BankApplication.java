@@ -46,7 +46,7 @@ public class BankApplication {
                 0.06);
 
         NotificationSender firstSender = new EmailNotificationSender();
-        NotificationSender secondSender = new SmsNotificationSender();
+        NotificationSender secondSender = new SmsNotificationSender("Twilio");
 
         //Aqui usamos un sender de tipo email
         TransferNotificationService service = new TransferNotificationService(firstSender);

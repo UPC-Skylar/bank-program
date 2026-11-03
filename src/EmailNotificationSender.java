@@ -1,5 +1,3 @@
-import javax.management.Notification;
-
 public class EmailNotificationSender implements NotificationSender {
 
     @Override

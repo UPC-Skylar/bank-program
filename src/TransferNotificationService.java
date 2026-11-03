@@ -1,6 +1,6 @@
 public class TransferNotificationService {
-    NotificationSender sender;
-    TransferNotificationService(NotificationSender sender) {
+    private final NotificationSender sender;
+    public TransferNotificationService(NotificationSender sender) {
         if(sender == null){
             throw new IllegalArgumentException("sender cannot be null");
         }
