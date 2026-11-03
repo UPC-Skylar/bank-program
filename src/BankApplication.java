@@ -40,28 +40,18 @@ public class BankApplication {
                 0.03
         );
 
-        System.out.println("\nCustomers:");
-        System.out.println("Customer 1: " + firstCustomer.getFullName());
-        System.out.println("Customer 2: " + secondCustomer.getFullName());
-
-        System.out.println("\nBank Accounts:");
-        System.out.println("cus001SavingsAccount: " + cus001SavingsAccount);
-        System.out.println("cus001CheckingAccount: " + cus001CheckingAccount);
-        System.out.println("cus002SavingsAccount: " + cus002SavingsAccount);
-
-        savingsAccount.deposit(500);
-
-        System.out.println(savingsAccount.getBalance());
-        System.out.println(savingsAccount.getAccountType());
-        System.out.println(savingsAccount.getInterestRate());
-
-        System.out.println("\nTotal accounts: " + BankAccount.getTotalAccounts());
-
         InterestBearing annualInterest = new SavingsAccount("ACC-005",
                 secondCustomer,
                 4000,
                 0.06);
 
-        System.out.println(annualInterest.calculateAnnualInterest());
+        NotificationSender firstSender = new EmailNotificationSender();
+        NotificationSender secondSender = new SmsNotificationSender();
+
+        //Aqui usamos un sender de tipo email
+        TransferNotificationService service = new TransferNotificationService(firstSender);
+        service.notifyTransfer("ana@gmail.com");
+        service = new TransferNotificationService(secondSender);
+        service.notifyTransfer("947337122");
     }
 }
