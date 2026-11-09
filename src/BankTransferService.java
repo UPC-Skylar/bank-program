@@ -1,49 +1,22 @@
 public class BankTransferService {
 
-    public static void main(String[] args) {
-        String accountStatus = "ACTIVE";
+    public boolean transfer(BankAccount source, BankAccount destination, double amount){
+        if(source == null || destination == null || amount < 0 || source == destination){
+            System.out.println("Transfer failed: Invalid source or destination account, or amount is negative.");
+            return false;
+        }
 
-        double balance = 3500.00;
-        double transferAmount = 1200.00;
-        double dailyTransferLimit = 5000.00;
+        if (!source.isActive() || !destination.isActive()){
+            System.out.println("Transfer failed: One or both accounts are inactive.");
+            return false;
+        }
 
-        boolean isActive = isAccountActive(accountStatus);
-        boolean isAmountValid = isTransferAmountValid(transferAmount);
-        boolean hasFunds = hasSufficientFunds(balance, transferAmount);
-        boolean isWhitinLimit = isWithinDailyLimit(transferAmount, dailyTransferLimit);
-        boolean isApproved = isTransferApproved(isActive, isAmountValid, hasFunds, isWhitinLimit);
+        if(source.getBalance() < amount) {
+            System.out.println("Transfer failed: Insufficient funds in source account.");
+            return false;
+        }
 
-        printHeader();
-        System.out.println("Account Status: " + accountStatus);
-        System.out.println("Is Active: " + isActive);
-        System.out.println("Is Transfer Amount Valid: " + isAmountValid);
-        System.out.println("Has Sufficient funds: " + hasFunds);
-        System.out.println("Is Within Daily Limit: " + isWhitinLimit);
-        System.out.println("Is Transfer Approved: " + isApproved);
+        System.out.println("Transferring " + amount + " from account " + source.getAccountNumber() + " to account " + destination.getAccountNumber());
+        return true;
     }
-
-    public static void printHeader() {
-        System.out.println("=== Transfer Summary ===");
-    }
-
-    public static boolean isAccountActive(String accountStatus) {
-        return "ACTIVE".equals(accountStatus);
-    }
-
-    public static boolean isTransferAmountValid(double transferAmount){
-        return transferAmount > 0;
-    }
-
-    public static boolean hasSufficientFunds(double balance, double transferAmount) {
-        return balance >= transferAmount;
-    }
-
-    public static boolean isWithinDailyLimit(double transferAmount, double dailyTransferLimit) {
-        return transferAmount <= dailyTransferLimit;
-    }
-
-    public static boolean isTransferApproved(boolean isAccountActive, boolean isAmountValid, boolean hasSufficientFunds, boolean isWithinDailyLimit) {
-        return isAccountActive && isAmountValid && hasSufficientFunds && isWithinDailyLimit;
-    }
-
 }

@@ -1,8 +1,8 @@
 public class SmsNotificationSender implements NotificationSender {
     private final String providerName;
 
-    SmsNotificationSender(String providerName) {
-        if(providerName == null || providerName.isEmpty()) {
+    public SmsNotificationSender(String providerName) {
+        if(providerName == null || providerName.isBlank()) {
             throw new IllegalArgumentException("provider name cannot be null or empty");
         }
         this.providerName = providerName;

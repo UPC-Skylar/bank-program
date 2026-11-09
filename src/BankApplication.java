@@ -53,5 +53,8 @@ public class BankApplication {
         service.notifyTransfer("ana@gmail.com");
         service = new TransferNotificationService(secondSender);
         service.notifyTransfer("947337122");
+
+        BankTransferService firstTransferService = new BankTransferService();
+        firstTransferService.transfer(cus001SavingsAccount, cus002SavingsAccount, 500.0);
     }
 }
