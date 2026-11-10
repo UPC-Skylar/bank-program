@@ -1,7 +1,7 @@
 public class BankTransferService {
 
     public boolean transfer(BankAccount source, BankAccount destination, double amount){
-        if(source == null || destination == null || amount < 0 || source == destination){
+        if(source == null || destination == null || amount <= 0 || source == destination || !Double.isFinite(amount)){
             System.out.println("Transfer failed: Invalid source or destination account, or amount is negative.");
             return false;
         }
@@ -11,7 +11,7 @@ public class BankTransferService {
             return false;
         }
 
-        if(source.getBalance() < amount) {
+        if(!source.hasSufficientFunds(amount)) {
             System.out.println("Transfer failed: Insufficient funds in source account.");
             return false;
         }
