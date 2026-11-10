@@ -54,7 +54,13 @@ public class BankApplication {
         service = new TransferNotificationService(secondSender);
         service.notifyTransfer("947337122");
 
+        System.out.println(cus001SavingsAccount.getBalance());
+        System.out.println(cus001CheckingAccount.getBalance());
+
         BankTransferService firstTransferService = new BankTransferService();
-        firstTransferService.transfer(cus001SavingsAccount, cus002SavingsAccount, 500.0);
+        firstTransferService.transfer(cus001SavingsAccount, cus001CheckingAccount, 500.0);
+
+        System.out.println(cus001SavingsAccount.getBalance());
+        System.out.println(cus001CheckingAccount.getBalance());
     }
 }
