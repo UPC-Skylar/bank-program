@@ -16,6 +16,9 @@ public class BankTransferService {
             return false;
         }
 
+        source.withdraw(amount);
+        destination.deposit(amount);
+
         System.out.println("Transferring " + amount + " from account " + source.getAccountNumber() + " to account " + destination.getAccountNumber());
         return true;
     }
